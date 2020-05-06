@@ -1,5 +1,11 @@
-import React, { useState } from 'react';
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from 'react';
 import * as S from './styles';
+
+//Importando a api
+import api from '../../services/api';
+
 //Nossos componentes
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -9,6 +15,20 @@ import TaskCard from '../../components/TaskCard';
 function Home() {
 
   const [filterActived, setFilterActived] = useState('today');
+
+  const [tasks, setTasks] = useState([]);
+
+  async function loadTasks() {
+     await api.get(`/task/filter/${filterActived}/11:11:11:11:11:11`)
+     .then(response => {
+        setTasks(response.data)
+        console.log(response.data);
+     })
+  }
+
+  useEffect(() => {
+    loadTasks();
+  }, [filterActived])
 
   return(
      <S.Container>
@@ -42,16 +62,11 @@ function Home() {
           </S.Title>
 
           <S.Content>
-            <TaskCard/>
-            <TaskCard/>
-            <TaskCard/>
-            <TaskCard/>
-            <TaskCard/>
-            <TaskCard/>
-            <TaskCard/>
-            <TaskCard/>
-            <TaskCard/>
-            <TaskCard/>
+            {
+              tasks.map( t => (
+              <TaskCard type={t.type} title={t.title} when={t.when}/>
+              ) )
+            }
           </S.Content>
        <Footer/>
      </S.Container>
