@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import * as S from './styles';
 
