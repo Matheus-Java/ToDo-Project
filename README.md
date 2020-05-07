@@ -26,6 +26,6 @@ Projeto de treino com tecnologias MongoDB, NodeJS, Insomnia, ReactJS, React Nati
 6° Use o projeto XD.
 
 # Status do Projeto:
-Status web: concluido 07/05/2020.
+Status web: concluido em 07/05/2020.
 
 Status mobile: em andamento.
