@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import * as S from './styles';
@@ -40,7 +41,7 @@ function Home() {
   useEffect(() => {
     loadTasks();
     lateVerify();
-  }, [filterActived, loadTasks])
+  }, [filterActived])
 
   return(
      <S.Container>
@@ -77,7 +78,7 @@ function Home() {
             {
               tasks.map( t => (
                 <Link to={`/task/${t._id}`}>
-                  <TaskCard type={t.type} title={t.title} when={t.when}/>
+                  <TaskCard type={t.type} title={t.title} when={t.when} done={t.done}/>
                 </Link>
               ) )
             }

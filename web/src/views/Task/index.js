@@ -43,6 +43,7 @@ function Task({match}) {
   async function LoadTaskDetails() {
     await api.get(`/task/${match.params.id}`)
     .then(response => {
+      setDone(response.data.done)
       setType(response.data.type)
       setTitle(response.data.title)
       setDescription(response.data.description)
@@ -52,6 +53,18 @@ function Task({match}) {
   }
 
   async function Save() {
+    //Validação dos dados
+    if(!title)
+      return alert("Você precisa informar o título da tarefa!")
+    else if(!description)
+      return alert("Você precisa informar a descrição da tarefa!")
+    else if(!type)
+      return alert("Você precisa selecionar o icone da tarefa!")
+    else if(!date)
+      return alert("Você precisa definir a data da terefa!")
+    else if(!hour)
+      return alert("Você precisa definer a hora da tarefa!")    
+
 
     if(match.params.id){
       await api.put(`/task/${match.params.id}`, {
