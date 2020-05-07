@@ -4,10 +4,9 @@ export const Container = styled.div`
   width: 100%;
   height: 70px;
   background: #20295F;
-  border-bottom: 6px solid #EE6B26;
+  border-bottom: 5px solid #EE6B26;
 
   display: flex;
-
 `
 
 export const LeftSide = styled.div`
@@ -19,44 +18,42 @@ export const LeftSide = styled.div`
 
   img {
     width: 100px;
-    height: 50px;
+    height: 40px;
   }
-
+ 
 `
 
 export const RightSide = styled.div`
-   width: 50%;
-   height: 70px;
-   display: flex;
-   align-items: center;
-   justify-content: flex-end;
+  width: 50%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 
-   button {
+  button {
       background: none;
-      border:none;
+      border: none;
       cursor: pointer;
-      outline: none;
     }
-  
-  a, button {
-    color: #FFFFFF;
+
+    a, button {
+    color: #FFF;
     font-weight: bold;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 10px;
+  
 
     &:hover{
       color: #EE6B26;
-    }
-  }
+    } 
 
-  #notification{
     img {
       width: 25px;
       height: 30px;
     }
 
-    span{
-      background: #FFFFFF;
+    span {
+      background: #FFF;
       color: #EE6B26;
       padding: 3px 7px;
       border-radius: 50%;
@@ -67,14 +64,17 @@ export const RightSide = styled.div`
 
     &:hover {
       opacity: 0.5;
-      transition: 1s;
     }
   }
 
   .dividir::after{
     content: "|";
     margin: 0 10px;
-    color: #FFFFFF; 
+    color: #FFF;
+  }
+
+  button {
+    font-size: 16px;
   }
 
 `

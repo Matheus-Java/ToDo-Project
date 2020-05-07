@@ -1,42 +1,39 @@
 import styled from 'styled-components';
 
-export const Container = styled.div `
-  width: 100%;
-
-  display: flex;
+export const Container = styled.div`
+  width: 100%;  
+  display: flex;  
   flex-direction: column;
   align-items: center;
-  
 `
+
 export const Form = styled.div`
   width: 50%;
-  margin-bottom: 200px;
+  margin-bottom: 70px;
 
 `
 
 export const TypeIcons = styled.div`
   width: 100%;
-
   display: flex;
   justify-content: center;
 
-  .inative {
+  .inative{
     opacity: 0.5;
   }
 
   button {
     border: none;
     background: none;
-    outline: none;
   }
-
+  
   img {
     width: 50px;
     height: 50px;
     margin: 10px;
     cursor: pointer;
 
-    &:hover {
+    &:hover{
       opacity: 0.5;
     }
   }
@@ -49,9 +46,9 @@ export const Input = styled.div`
   flex-direction: column;
   margin: 20px 0;
 
-  span {
+  span{
     color: #707070;
-    margin-bottom: 5px;
+    margin: 5px 0;
   }
 
   input {
@@ -59,17 +56,17 @@ export const Input = styled.div`
     padding: 15px;
     border: none;
     border-bottom: 1px solid #EE6B26;
-    outline: none;
   }
 
   img {
     width: 20px;
     height: 20px;
     position: relative;
-    left: 90%;
+    left: 90%;  
     bottom: 30px;
   }
-`
+
+` 
 
 export const TextArea = styled.div`
   width: 100%;
@@ -77,7 +74,7 @@ export const TextArea = styled.div`
   flex-direction: column;
   margin: 20px 0;
 
-  span {
+  span{
     color: #707070;
     margin: 5px 0;
   }
@@ -85,23 +82,23 @@ export const TextArea = styled.div`
   textarea {
     font-size: 16px;
     border: 1px solid #EE6B26;
-    outline: none;
   }
 `
+
+
 export const Options = styled.div`
   display: flex;
   justify-content: space-between;
 
   button {
-    color: #2029F5;
     font-weight: bold;
-    font-size: 18px;
+    color: #20295F;
     border: none;
     background: none;
+    font-size: 18px;
     cursor: pointer;
-    outline: none;
 
-    &:hover {
+    &:hover{
       opacity: 0.7;
     }
   }
@@ -112,29 +109,28 @@ export const Options = styled.div`
     color: #EE6B26;
     font-weight: bold;
     font-size: 18px;
-
   }
-
 `
 
 export const Save = styled.div`
   width: 100%;
-  margin-top: 60px;
+  margin-top: 20px;
 
   button {
     width: 100%;
     background: #EE6B26;
-    border:none;
+    border: none;
     font-size: 20px;
-    color: #FFFFFF;
+    color: #FFF;
     font-weight: bold;
     padding: 20px;
     border-radius: 30px;
     cursor: pointer;
-    outline: none;
 
     &:hover{
       opacity: 0.7;
     }
   }
+
+
 `

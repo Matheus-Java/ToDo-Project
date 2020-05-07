@@ -4,7 +4,7 @@ import * as S from './styles';
 function Footer() {
   return (
     <S.Container>
-        <span>ToDO - Organizando sua vida</span>
+     <span>ToDO - Organizando sua vida</span>
     </S.Container>
   )
 }

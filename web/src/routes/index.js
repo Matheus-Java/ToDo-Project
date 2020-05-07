@@ -1,16 +1,18 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from'react-router-dom';
 
 import Home from '../views/Home';
-import Taks from '../views/Task';
+import Task from '../views/Task';
+import QrCode from '../views/QrCode';
 
 export default function Routes(){
-  return (
+  return(
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Home}/>
-        <Route path="/task" exact component={Taks}/>
-        <Route path="/task/:id" exact component={Taks}/>
+        <Route path="/task" exact component={Task}/>
+        <Route path="/task/:id" exact component={Task}/>
+        <Route path="/qrcode" exact component={QrCode}/>
       </Switch>
     </BrowserRouter>
   )

@@ -1,36 +1,26 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import * as S from './styles';
 
-//Importando a api
 import api from '../../services/api';
+import isConnected from '../../utils/isConnected';
 
-//Nossos componentes
+//NOSSOS COMPONENTES
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import FilterCard from '../../components/FilterCard';
 import TaskCard from '../../components/TaskCard';
 
 function Home() {
-
-  const [filterActived, setFilterActived] = useState('today');
-
+  const [filterActived, setFilterActived] = useState('all');
   const [tasks, setTasks] = useState([]);
+  const [redirect, setRedirect] = useState(false);
 
-  const [lateCount, setLateCount] = useState();
 
-  async function loadTasks() {
-     await api.get(`/task/filter/${filterActived}/11:11:11:11:11:11`)
-     .then(response => {
-        setTasks(response.data)
-     })
-  }
-
-  async function lateVerify() {
-    await api.get(`/task/filter/late/11:11:11:11:11:11`)
+  async function loadTasks(){
+    await api.get(`/task/filter/${filterActived}/${isConnected}`)
     .then(response => {
-       setLateCount(response.data.length)
+      setTasks(response.data)
     })
   }
 
@@ -40,53 +30,52 @@ function Home() {
 
   useEffect(() => {
     loadTasks();
-    lateVerify();
-  }, [filterActived])
 
-  return(
-     <S.Container>
-       <Header lateCount={lateCount} clickNotification={Notification}/>
+    if(!isConnected)
+      setRedirect(true); 
 
-          <S.FilterArea>
-            <button type="button"         onClick={() => setFilterActived("all")}>
-              <FilterCard title="Todos"   actived={filterActived === 'all'}/>
-            </button>
+  }, [filterActived, loadTasks])
 
-            <button type="button"         onClick={() => setFilterActived("today")}>
-              <FilterCard title="Hoje"    actived={filterActived === 'today'}/>
-            </button>
+  return (
+    <S.Container>
+      { redirect && <Redirect to="/qrcode"/> }
+      <Header clickNotification={Notification}/>
+      
+      <S.FilterArea>
+        <button type="button"        onClick={() => setFilterActived("all")}>
+          <FilterCard title="Todos"  actived={filterActived == 'all'}   />
+        </button>
+        <button type="button"        onClick={() => setFilterActived("today")}>
+          <FilterCard title="Hoje"   actived={filterActived == 'today'} />
+        </button>
+        <button type="button"        onClick={() => setFilterActived("week")}>
+          <FilterCard title="Semana" actived={filterActived == 'week'}  />
+        </button>
+        <button type="button"        onClick={() => setFilterActived("month")}>
+          <FilterCard title="Mês" actived={filterActived == 'month'}  />
+        </button>
+        <button type="button"     onClick={() => setFilterActived("year")}>
+          <FilterCard title="Ano" actived={filterActived == 'year'}  />
+        </button>        
+      </S.FilterArea>
 
-            <button type="button"         onClick={() => setFilterActived("week")}>
-              <FilterCard title="Semana"  actived={filterActived === 'week'}/> 
-            </button>
+      <S.Title>
+        <h3>{filterActived == 'late' ? 'TAREFAS ATRASADAS'  : 'TAREFAS'}</h3>
+      </S.Title>
 
-            <button type="button"         onClick={() => setFilterActived("month")}>
-              <FilterCard title="Mês"     actived={filterActived === 'month'}/> 
-            </button>
-            
-            <button type="button"         onClick={() => setFilterActived("year")}>
-              <FilterCard title="Ano"     actived={filterActived === 'year'}/>
-            </button>
-               
-          </S.FilterArea>
-          
-          <S.Title>
-            <h3>{filterActived === 'late' ? 'TAREFAS ATRASADAS' : 'TAREFAS'}</h3>
-          </S.Title>
+      <S.Content>
+        {
+          tasks.map(t => (
+          <Link to={`/task/${t._id}`}>
+            <TaskCard type={t.type} title={t.title} when={t.when} done={t.done} />    
+          </Link>
+          ))  
+        }
+      </S.Content>
 
-          <S.Content>
-            {
-              tasks.map( t => (
-                <Link to={`/task/${t._id}`}>
-                  <TaskCard type={t.type} title={t.title} when={t.when} done={t.done}/>
-                </Link>
-              ) )
-            }
-          </S.Content>
-       <Footer/>
-     </S.Container>
-     )
+      <Footer/>
+    </S.Container>
+  )
 }
 
 export default Home;
-

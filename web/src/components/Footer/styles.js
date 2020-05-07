@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 100%;
   height: 50px;
   background: #20295F;
-  border-top: 6px solid #EE6B26;
+  border-top: 5px solid #EE6B26;
 
   position: fixed;
   bottom: 0;
@@ -13,7 +13,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  span {
-    color: #FFFFFF;
+  span{
+    color: #FFF;
   }
+
 `

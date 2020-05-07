@@ -5,10 +5,9 @@ export const Container = styled.div`
   height: 60px;
   background: ${props => props.actived ? '#EE6B26' : '#20295F'};
   padding: 10px;
-  
   cursor: pointer;
 
-  border-radius: 10px;
+  border-radius: 5px;
 
   display: flex;
   flex-direction: column;
@@ -20,10 +19,10 @@ export const Container = styled.div`
   }
 
   span {
-    color: #FFFFFF;
+    color: #FFF;
     font-weight: bold;
-    font-size: 18px;
     align-self: flex-end;
+    font-size: 18px;
   }
 
   &:hover{

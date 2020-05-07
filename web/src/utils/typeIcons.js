@@ -1,9 +1,8 @@
-// ICONES
+//ICONES
 import iconDefault from '../assets/default.png';
-
 import iconFooteball from '../assets/footeball.png';
 import iconFood from '../assets/food.png';
-import iconJob from '../assets/work.png';
+import iconJob from '../assets/job.png';
 import iconParty from '../assets/party.png';
 import iconStudy from '../assets/study.png';
 import iconShopping from '../assets/shopping.png';
@@ -20,7 +19,7 @@ const typeIcons = [
   iconStudy,
   iconShopping,
   iconTravel,
-  iconSport 
+  iconSport
 ];
 
 export default typeIcons;
