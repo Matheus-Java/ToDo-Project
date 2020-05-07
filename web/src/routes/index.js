@@ -10,6 +10,7 @@ export default function Routes(){
       <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/task" exact component={Taks}/>
+        <Route path="/task/:id" exact component={Taks}/>
       </Switch>
     </BrowserRouter>
   )
