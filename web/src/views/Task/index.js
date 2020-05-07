@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
@@ -92,6 +93,16 @@ function Task({match}) {
 
   }
 
+  async function Remove() {
+    const res = window.confirm('Deseja realmente remover a tarefa?');
+
+    if(res == true){
+      await api.delete(`/task/${match.params.id}`)
+      .then(() => setRedirect(true))
+    }
+
+  }
+
   useEffect(() => {
     lateVerify();
     LoadTaskDetails();
@@ -146,7 +157,7 @@ function Task({match}) {
               <span>CONCLUÍDO</span>
             </div>
 
-            <button type="button"> EXCLUIR </button>
+            { match.params.id && <button type="button" onClick={Remove}> EXCLUIR </button>}
           </S.Options>
 
           <S.Save>
