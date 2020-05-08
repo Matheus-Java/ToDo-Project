@@ -16,6 +16,7 @@ Projeto de treino com tecnologias MongoDB, NodeJS, Insomnia, ReactJS, React Nati
  3° Após baixar ou clonar
     Entra na pasta backend e na pasta web pelo seu cmd ou qualquer terminal de comando.
     Rode o comando npm install em ambas as pastas.
+    *OBS: TENHA O NODEJS EM SUA MÁQUINA.
  
  4° Concluindo a instalação do npm com as dependências do projeto
     Com o terminal de comando aberto rode o comando npm start em ambas as pastas.
