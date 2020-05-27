@@ -9,7 +9,7 @@ Projeto de treino com tecnologias MongoDB, NodeJS, Insomnia, ReactJS, React Nati
  
  # Instalação dos componentes:
  1° Instale o MongoDB em sua máquina.
- link: https://www.mongodb.com/download-center/compass
+ link: https://www.mongodb.com/download-center/community
  
  2° Baixe ou Clone o repositório.
  
